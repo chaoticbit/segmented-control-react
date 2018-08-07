@@ -1,6 +1,7 @@
 {
-  "name": "react-segmented-control",
+  "name": "segmented-control-react",
   "version": "0.1.0",
+  "license": "MIT",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
