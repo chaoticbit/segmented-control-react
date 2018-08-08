@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ReactSegmentedControl } from './node_modules/';
+import { SegmentedControl } from './node_modules/';
 
 const segments = ["All", "Unread", "Drafts", "Trash","Pins"];
 
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ReactSegmentedControl
+        <SegmentedControl
             segments={segments}
             selected={0}     
             onChangeSegment={handleChange}           

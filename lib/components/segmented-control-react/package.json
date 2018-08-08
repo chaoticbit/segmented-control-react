@@ -1,4 +1,4 @@
 {    
     "name": "segmented-control-react",
-    "main": "./react-segmented-control.js"    
+    "main": "./segmented-control-react.js"    
 }
