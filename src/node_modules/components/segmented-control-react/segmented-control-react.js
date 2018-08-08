@@ -6,7 +6,7 @@ import './segmented-control-react.css';
 const Container = styled.div`
     width: 100%;
     background-color: #fff;
-    color: #1787fb;
+    color: rgb(0,122,255);
     border-bottom: 1px solid #e9eff3;
     border-left: 1px solid #fff;
     text-align: center;
@@ -27,7 +27,7 @@ const ScList = styled.ul`
 
 const ScListItem = styled.li`
     background: #fff;
-    border: 1px solid #87a6bc;
+    border: 1px solid rgb(0,122,255);
     border-right: none;
     font-size: 13px;
     height: 26px;
@@ -54,7 +54,7 @@ const ScListItem = styled.li`
     }
 
     &:last-of-type {
-        border-right: 1px solid #87a6bc;
+        border-right: 1px solid rgb(0,122,255);
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
     }

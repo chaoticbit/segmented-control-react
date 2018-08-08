@@ -1,5 +1,5 @@
 .selected {
-    background: #1787fb !important;
-    border-color: #00aadc !important;
+    background: rgb(0,122,255) !important;
+    border-color: rgb(0,122,255) !important;
     color: #fff !important;
 }

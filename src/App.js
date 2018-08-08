@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SegmentedControl } from './node_modules/';
 
-const segments = ["All", "Unread", "Drafts", "Trash","Pins"];
+const segments = ['All', 'Unread', 'Drafts', 'Trash', 'Pins'];
 
 function handleChange(index) {
     console.log(`selected index : ${index}`);
