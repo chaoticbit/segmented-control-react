@@ -2,6 +2,7 @@
   "name": "segmented-control-react",
   "description": "A replica of iOS segmented control component done purely in React.",
   "version": "0.1.0",
+  "main": "lib/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
