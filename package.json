@@ -1,12 +1,12 @@
 {
   "name": "segmented-control-react",
   "description": "A replica of iOS segmented control component done purely in React.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chaoticbit/segmented-control-react"      
+    "url": "https://github.com/chaoticbit/segmented-control-react"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",
