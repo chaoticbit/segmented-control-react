@@ -1,7 +1,7 @@
 {
   "name": "segmented-control-react",
   "description": "A replica of iOS segmented control component done purely in React.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "license": "MIT",
   "repository": {
@@ -53,8 +53,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "postinstall": "babel src/node_modules --out-dir lib --copy-files",
+    "start": "node scripts/start.js",   
     "build": "node scripts/build.js",
     "lib": "babel src/node_modules --out-dir lib --copy-files",
     "test": "node scripts/test.js --env=jsdom"
