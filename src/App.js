@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SegmentedControl } from './node_modules/';
+import { SegmentedControl } from './components';
 
 const segments = ['All', 'Unread', 'Drafts', 'Trash', 'Pins'];
 
