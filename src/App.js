@@ -11,9 +11,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SegmentedControl
+        <SegmentedControl            
             segments={segments}
-            selected={0}     
+            selected={0} 
+            variant="base"    
             onChangeSegment={handleChange}           
         />
       </div>
