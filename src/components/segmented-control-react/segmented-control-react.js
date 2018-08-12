@@ -78,7 +78,7 @@ export default class SegmentedControl extends Component {
     };
     render() {
         return (
-            <Container className="r-sc">
+            <Container className="rsc">
                 <ScList>
                     {                                                
                         this.props.segments.map((segment, i) => {                         

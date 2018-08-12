@@ -1,50 +1,50 @@
-.r-sc .base {
+.rsc .base {
     border-color: rgb(0,122,255) !important;
     color: rgb(0,122,255);
 }
 
-.r-sc .dark {
+.rsc .dark {
     border-color: #333 !important;
     color: #333;
 }
 
-.r-sc .light {
+.rsc .light {
     border-color: rgb(247, 247, 247) !important;
     color: rgb(247, 247, 247);
     background: transparent !important;
 }
 
-.r-sc .success {
+.rsc .success {
     border-color: #5cb85c !important;
     color: #5cb85c;
 }
 
-.r-sc .error {
+.rsc .error {
     border-color: #d9534f !important;
     color: #d9534f;
 }
 
-.r-sc .base.selected {
+.rsc .base.selected {
     background: rgb(0,122,255) !important;    
     color: #fff !important;
 }
 
-.r-sc .dark.selected {
+.rsc .dark.selected {
     background: #333 !important;
     color: #fff !important;
 }
 
-.r-sc .light.selected {
+.rsc .light.selected {
     background: rgb(247, 247, 247) !important;
     color: #333 !important;
 }
 
-.r-sc .success.selected {
+.rsc .success.selected {
     background: #5cb85c !important; 
     color: #fff !important;
 }
 
-.r-sc .error.selected {
+.rsc .error.selected {
     background: #d9534f !important;
     color: #fff !important;
 }

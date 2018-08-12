@@ -1,1 +1,1 @@
-export { default as SegmentedControl } from './components/segmented-control-react';
+export { default as SegmentedControl } from './components/segmented-control-react/segmented-control-react';

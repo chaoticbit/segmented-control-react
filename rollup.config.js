@@ -1,12 +1,20 @@
+import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel'
 import uglify from 'rollup-plugin-uglify'
 
-const path = 'dist/'
+// Convert CJS modules to ES6, so they can be included in a bundle
+import commonjs from 'rollup-plugin-commonjs';
+import postcss from 'rollup-plugin-postcss';
+import postcssModules from 'postcss-modules';
+
+const path = 'dist/';
+const cssExportMap = {};
 
 const globals = {
     'prop-types': 'PropTypes',
     'react-dom': 'ReactDOM',
-    react: 'React'
+    react: 'React',    
+    'styled-components': 'styled'
 };
 
 export default {
@@ -16,5 +24,15 @@ export default {
         format: 'cjs'
     },
     external: Object.keys(globals),
-    plugins: [babel(), uglify()]
+    plugins: [
+        resolve(),
+        postcss({            
+            plugins: []
+        }),        
+        babel({
+            exclude: 'node_modules/**'
+        }),
+        commonjs(), 
+        uglify()
+    ]
 };

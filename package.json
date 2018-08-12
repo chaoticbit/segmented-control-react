@@ -2,13 +2,22 @@
   "name": "segmented-control-react",
   "description": "A replica of iOS segmented control component done purely in React.",
   "version": "2.0.0",
-  "main": "src/index.js",
+  "main": "dist/bundle.js",
+  "style": "dist/styles.css",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/chaoticbit/segmented-control-react"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -23,7 +32,13 @@
     "babel-preset-es2016": "^6.24.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "postcss-modules": "^1.3.2",
+    "rollup": "^0.64.1",
     "rollup-plugin-babel": "3.0.3",
+    "rollup-plugin-commonjs": "^9.1.5",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-uglify": "3.0.0"
   },
   "keywords": [
