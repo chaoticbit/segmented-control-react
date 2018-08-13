@@ -6,7 +6,6 @@ import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 
 const path = 'dist/';
-const cssExportMap = {};
 
 const globals = {
     'prop-types': 'PropTypes',
