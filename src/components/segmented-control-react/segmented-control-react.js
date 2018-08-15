@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import './segmented-control-react.css';
 
 export default class SegmentedControl extends Component {
-    state = {
-        selectedSegment: 0,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedSegment: 0,
+        };
+        this.renderSegments = this.renderSegments.bind(this);
+    }
     static defaultProps = {
         onChangeSegment: x => x,
         variant: 'base',
@@ -14,7 +18,6 @@ export default class SegmentedControl extends Component {
     componentDidMount() {
         let selected = this.props.selected;
         if(this.props.segments.map(function(e) { return e.disabled; }).indexOf(true) == selected) {
-            // selected = selected + 1;
             delete this.props.segments[selected].disabled;
             console.error('Selected segment cannot be disabled');
         }
@@ -26,45 +29,52 @@ export default class SegmentedControl extends Component {
         this.setState({ selectedSegment });
         this.props.onChangeSegment(selectedSegment);
     };
+
+    renderSegments = () => {
+        return (
+            this.props.segments.map((segment, i) => {
+                if (i === this.state.selectedSegment) {
+                    return (
+                        <li
+                            key={i}
+                            className={`${this.props.variant} selected`}
+                        >
+                            {segment.name}
+                        </li>
+                    );
+                } else {
+                    if(segment.disabled) {
+                        return (
+                            <li
+                                key={i}
+                                className={`${this.props.variant}`}
+                                aria-disabled="true"
+                            >
+                                {segment.name}
+                            </li>
+                        );
+                    } else {
+                        return(
+                            <li
+                                key={i}
+                                className={`${this.props.variant}`}
+                                onClick={() => this.onChange(i)}
+                            >
+                                {segment.name}
+                            </li>
+                        );
+                    }
+                }
+            })
+        )
+    }
+
     render() {
         return (
             <div className="r-segmented-control">
                 <ul>
-                    {                                                
-                        this.props.segments.map((segment, i) => {
-                            if (i === this.state.selectedSegment) {
-                                return (
-                                    <li 
-                                        key={i} 
-                                        className={`${this.props.variant} selected`}
-                                    >
-                                        {segment.name}
-                                    </li>
-                                );
-                            } else {
-                                if(segment.disabled) {
-                                    return (
-                                        <li
-                                            key={i}
-                                            className={`${this.props.variant}`}
-                                            aria-disabled="true"
-                                        >
-                                            {segment.name}
-                                        </li>
-                                    );
-                                } else {
-                                    return(
-                                        <li
-                                            key={i}
-                                            className={`${this.props.variant}`}
-                                            onClick={() => this.onChange(i)}
-                                        >
-                                            {segment.name}
-                                        </li>
-                                    );
-                                }
-                            }
-                        })
+                    {
+                        this.renderSegments()
                     }
                 </ul>
             </div>

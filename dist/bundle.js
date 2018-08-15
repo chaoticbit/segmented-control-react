@@ -89,23 +89,60 @@ var possibleConstructorReturn = function (self, call) {
 var SegmentedControl = function (_Component) {
     inherits(SegmentedControl, _Component);
 
-    function SegmentedControl() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
+    function SegmentedControl(props) {
         classCallCheck(this, SegmentedControl);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = possibleConstructorReturn(this, (SegmentedControl.__proto__ || Object.getPrototypeOf(SegmentedControl)).call(this, props));
 
-        return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = SegmentedControl.__proto__ || Object.getPrototypeOf(SegmentedControl)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            selectedSegment: 0
-        }, _this.onChange = function (selectedSegment) {
+        _this.onChange = function (selectedSegment) {
             _this.setState({ selectedSegment: selectedSegment });
             _this.props.onChangeSegment(selectedSegment);
-        }, _temp), possibleConstructorReturn(_this, _ret);
+        };
+
+        _this.renderSegments = function () {
+            return _this.props.segments.map(function (segment, i) {
+                if (i === _this.state.selectedSegment) {
+                    return React__default.createElement(
+                        'li',
+                        {
+                            key: i,
+                            className: _this.props.variant + ' selected'
+                        },
+                        segment.name
+                    );
+                } else {
+                    if (segment.disabled) {
+                        return React__default.createElement(
+                            'li',
+                            {
+                                key: i,
+                                className: '' + _this.props.variant,
+                                'aria-disabled': 'true'
+                            },
+                            segment.name
+                        );
+                    } else {
+                        return React__default.createElement(
+                            'li',
+                            {
+                                key: i,
+                                className: '' + _this.props.variant,
+                                onClick: function onClick() {
+                                    return _this.onChange(i);
+                                }
+                            },
+                            segment.name
+                        );
+                    }
+                }
+            });
+        };
+
+        _this.state = {
+            selectedSegment: 0
+        };
+        _this.renderSegments = _this.renderSegments.bind(_this);
+        return _this;
     }
 
     createClass(SegmentedControl, [{
@@ -115,7 +152,6 @@ var SegmentedControl = function (_Component) {
             if (this.props.segments.map(function (e) {
                 return e.disabled;
             }).indexOf(true) == selected) {
-                // selected = selected + 1;
                 delete this.props.segments[selected].disabled;
                 console.error('Selected segment cannot be disabled');
             }
@@ -125,50 +161,13 @@ var SegmentedControl = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             return React__default.createElement(
                 'div',
                 { className: 'r-segmented-control' },
                 React__default.createElement(
                     'ul',
                     null,
-                    this.props.segments.map(function (segment, i) {
-                        if (i === _this2.state.selectedSegment) {
-                            return React__default.createElement(
-                                'li',
-                                {
-                                    key: i,
-                                    className: _this2.props.variant + ' selected'
-                                },
-                                segment.name
-                            );
-                        } else {
-                            if (segment.disabled) {
-                                return React__default.createElement(
-                                    'li',
-                                    {
-                                        key: i,
-                                        className: '' + _this2.props.variant,
-                                        'aria-disabled': 'true'
-                                    },
-                                    segment.name
-                                );
-                            } else {
-                                return React__default.createElement(
-                                    'li',
-                                    {
-                                        key: i,
-                                        className: '' + _this2.props.variant,
-                                        onClick: function onClick() {
-                                            return _this2.onChange(i);
-                                        }
-                                    },
-                                    segment.name
-                                );
-                            }
-                        }
-                    })
+                    this.renderSegments()
                 )
             );
         }
