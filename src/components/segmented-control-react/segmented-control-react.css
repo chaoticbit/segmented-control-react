@@ -54,6 +54,12 @@
     border-bottom-right-radius: 4px;
 }
 
+.r-segmented-control > ul > li[aria-disabled="true"] {
+    border-color: #ccc !important;
+    color: #ccc !important;
+    cursor: not-allowed;
+}
+
 .r-segmented-control > ul > li.base {
     border-color: rgb(0,122,255) !important;
     color: rgb(0,122,255);
@@ -107,4 +113,8 @@
 .r-segmented-control > ul > li.error.selected {
     background: #d9534f !important;
     color: #fff !important;
+}
+
+.rsc-warning {
+
 }
