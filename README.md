@@ -41,28 +41,42 @@ OR
   | variant         | string | variant name                               | default **base** |
   | onChangeSegment | event  | method to implement logic on click segment | optional     |
 
+### Features
+  * **Disable segment** : add `disabled: true` to segment object as shown in the example below to disable that particular segment 
+
 ## Example
 
 ```
 …
 import { SegmentedControl } from 'segmented-control-react';
 
-const segments = ['All', 'Unread', 'Drafts', 'Trash', 'Pins'];
+const segments = [
+  { name: 'All' },
+  { name: 'Unread', disabled: true },
+  { name: 'Drafts' },
+  { name: 'Trash' },
+  { name: 'Pins' }
+];
 
 function handleChange(index) {
     console.log(`selected index : ${index}`);
 }
 
 class App extends Component {
+  state = {
+      segments: segments,
+      selected: 0
+  };
+  
   render() {
     return (
       <div className="App">
         <SegmentedControl
-            segments={segments}
-            selected={0} 
+            segments={this.state.segments}
+            selected={this.state.selected} 
             variant="base"
             onChangeSegment={handleChange}           
-        />
+        />        
       </div>
     );
   }
